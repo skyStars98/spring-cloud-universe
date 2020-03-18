@@ -15,10 +15,12 @@ spring:
 
 
 eureka:
-  host: localhost
+  instance:
+    prefer-ip-address: true
+    instance-id: payment8001 #集群情况下，同一个服务会有多个实例，这里就是指定当前实例的唯一标识（Eureka中可见）
   client:
     service-url:
-      defaultZone: http://${eureka.host}:${eureka.port:7001}/eureka/
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
