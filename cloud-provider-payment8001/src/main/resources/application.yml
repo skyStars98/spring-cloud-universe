@@ -18,6 +18,8 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: payment8001 #集群情况下，同一个服务会有多个实例，这里就是指定当前实例的唯一标识（Eureka中可见）
+    #lease-renewal-interval-in-seconds: 20 #表示eureka client发送心跳给server端的时间间隔 默认30秒
+    #lease-expiration-duration-in-seconds: 30 #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance。默认90秒
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/

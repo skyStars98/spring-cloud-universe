@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+management: #actuator
+  endpoints:
+    web:
+      exposure:
+        include: "*" #开放所有端点
+
+spring:
+  application:
+    name: cloud-consumer-order
+  cloud:
+    consul:
+      host: http://47.98.243.176
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name} #微服务名称，在这里配置优先级高于spring.application.name 如果两个都不配置默认服务名称为application
+        health-check-path: /actuator/health #如果这里不显示配置健康检查地址，则consul server端对这个服务的健康检查一定会失败，这里依赖boot actuator jar包
+        health-check-interval: 10s # 健康检测时间间隔
+        prefer-ip-address: true

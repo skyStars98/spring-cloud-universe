@@ -41,4 +41,9 @@ public class PaymentController {
         log.info("端口号为：{},查询结果：{}", serverPort, payment);
         return ResponseResult.success("查询成功，端口号：" + serverPort, payment);
     }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
+    }
 }
