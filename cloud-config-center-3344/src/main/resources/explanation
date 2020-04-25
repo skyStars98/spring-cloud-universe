@@ -1,0 +1,8 @@
+
+*************************路径映射规则**************************
+
+/{application}/{profile}[/{label}] 返回json字符串需要自己解析一遍 文件名-后缀-分支
+/{application}-{profile}.yml
+/{label}/{application}-{profile}.yml 直接返回数据 分支-文件名-后缀
+/{application}-{profile}.properties
+/{label}/{application}-{profile}.properties

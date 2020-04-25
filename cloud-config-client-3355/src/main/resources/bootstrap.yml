@@ -1,0 +1,25 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master #分支
+      name: config #文件名称
+      profile: dev #文件后缀
+      uri: http://localhost:3344 #配置中心地址
+      #综合：从配置中心读取master分支上的config-dev.yml文件 http://localhost:3344/master/config-dev.yml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+
+#暴露服务端点，好让配置可以通过请求刷新（手动刷新配置文件需要用到refresh端点）
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
