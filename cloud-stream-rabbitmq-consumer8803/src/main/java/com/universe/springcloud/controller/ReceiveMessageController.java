@@ -8,10 +8,11 @@ import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
+
 /**
  * @Author: daiguoqing
  * @Date: 2020/4/27
- * @Time: 15:53
+ * @Time: 9:07 下午
  * @Version: spring-cloud-universe 1.0
  */
 @Component

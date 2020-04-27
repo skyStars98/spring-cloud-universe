@@ -1,5 +1,5 @@
 server:
-  port: 8802
+  port: 8803
 
 spring:
   application:
@@ -21,11 +21,12 @@ spring:
           destination: studyExchange #exchange名称,交换模式默认是topic;把SpringCloud stream的消息输出通道绑定到RabbitMQ的exchange-msg交换器。
           content-type: application/json #设置消息类型为json
           binder: defaultRabbit #设置要绑定的mq
-          #group: universeA #分组 作用：1、避免消息重复消费，同一个组中的微服务会存在竞争，只有一个可以消费消息
-          #                            2、消息持久化，配置了group后服务就算宕机或者重启，只要还有没有被消费的消息，服务启动后会自动消费，避免了消息丢失
+          group: universeA #分组 作用：1、避免消息重复消费，同一个组中的微服务会存在竞争，只有一个可以消费消息
+          #                           2、消息持久化，配置了group后服务就算宕机或者重启，只要还有没有被消费的消息，服务启动后会自动消费，避免了消息丢失
+
 eureka:
   instance:
-    instance-id: receive-8802.com
+    instance-id: receive-8803.com
     prefer-ip-address: true
   client:
     service-url:
