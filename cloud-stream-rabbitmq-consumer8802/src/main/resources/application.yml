@@ -1,0 +1,32 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders: #在这里配置MQ信息
+        defaultRabbit: #定义名称，用于binding整合
+          type: rabbit #消息组件类型
+          environment: #设置rabbitmq环境配置
+            spring:
+              rabbitmq:
+                host: 47.98.243.176
+                port: 5672
+                username: guest
+                password: guest
+      bindings: #与上面定义的mq进行绑定
+        input: #消费者绑定，这个是消息通道的名称
+          destination: studyExchange #exchange名称,交换模式默认是topic;把SpringCloud stream的消息输出通道绑定到RabbitMQ的exchange-msg交换器。
+          content-type: application/json #设置消息类型为json
+          binder: defaultRabbit #设置要绑定的mq
+
+eureka:
+  instance:
+    instance-id: receive-8802.com
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/
+

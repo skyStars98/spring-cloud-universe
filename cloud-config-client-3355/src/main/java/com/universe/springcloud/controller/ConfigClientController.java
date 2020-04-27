@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version: spring-cloud-universe 1.0
  */
 @RestController
-@RefreshScope //手动刷新配置 还需要发一个post请求
+@RefreshScope //手动刷新配置 需要发一个post请求
 public class ConfigClientController {
 
     @Value("${config.info}")
