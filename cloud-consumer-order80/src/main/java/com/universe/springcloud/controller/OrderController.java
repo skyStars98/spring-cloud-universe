@@ -62,4 +62,12 @@ public class OrderController {
         log.info("调用地址：{}", serviceInstance.getUri() + "/payment/lb");
         return restTemplate.getForObject(serviceInstance.getUri() + "/payment/lb", String.class);
     }
+
+    //zipkin + sleuth
+    @GetMapping("/consumer/payment/zipkin")
+    @SuppressWarnings("SpellCheckingInspection")
+    public String paymentzipkin(){
+        String result = restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+        return result;
+    }
 }
