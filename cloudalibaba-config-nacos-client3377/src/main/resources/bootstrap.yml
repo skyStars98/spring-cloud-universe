@@ -1,0 +1,24 @@
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.98.243.176:8848
+      config:
+        server-addr: 47.98.243.176:8848 #配置中心server端地址
+        file-extension: yaml #指定读取yaml格式的配置
+        group: DEV_GROUP #指定读取那个分组的配置 （配置分组）
+        namespace: 506ce34c-565e-4d89-963d-db28025543df #指定读取那个命名空间下的配置 (配置分区)
+
+#配置规则
+# ${prefix}-${spring.profile.active}.${file-extension}
+# ${prefix}默认为: spring.application.name
+# ${spring.profile.active}：spring.profiles.active
+# ${file-extension}: spring.cloud.nacos.config.file-extension\
+# 注意：当 spring.profile.active 为空时，对应的连接符 - 也将不存在，dataId 的拼接格式变成 ${prefix}.${file-extension}
+
+# namespace > group > Data Id

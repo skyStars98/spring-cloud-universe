@@ -12,7 +12,7 @@
     <artifactId>cloudalibaba-provider-payment9001</artifactId>
 
     <dependencies>
-        <!-- SpringCloud alibaba nacos -->
+        <!-- SpringCloud alibaba nacos client-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
